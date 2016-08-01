@@ -1,0 +1,12 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+daily_show:
+    path:      /{page}
+    defaults:  { _controller: AppBundle:DefaultController:show}
+    options:
+      expose: true

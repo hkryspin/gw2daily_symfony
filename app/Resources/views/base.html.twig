@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GW2 Daily</title>
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="https://d1h9a8s8eodvjz.cloudfront.net/fonts/menomonia/08-02-12/menomonia.css" rel="stylesheet" />
+
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+    <script src="{{ asset('js/jquery-3.0.0.min.js') }}"></script>
+    <script src="{{ asset('js/ajax.js') }}"></script>
+    {#
+    {% javascripts '@AppBundle/Resources/public/js/test.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    #}
+</head>
+<body style="text-align: center; background-color: #eee;">
+    <h2>GW2 Daily</h2>
+    <nav>
+        <a onclick="ajax(event)" id="pve" href="{{ path('daily_show', {'page': 'pve'}) }}" />pve</a>
+        <a onclick="ajax(event)" id="pvp" href="{{ path('daily_show', {'page': 'pvp'}) }}" />pvp</a>
+        <a onclick="ajax(event)" id="wvw" href="{{ path('daily_show', {'page': 'wvw'}) }}" />wvw</a>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+<pre>
+    {#{{ dump(data) }}#}
+</pre>
+</body>
+</html>
