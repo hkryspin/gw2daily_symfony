@@ -2,12 +2,28 @@
 
 namespace AppBundle\Model;
 
-class GwDaily extends GwApi
+class GwDaily
 {
+
+    private $api;
+    private $response;
+
+    public function __construct()
+    {
+        $this->api = new GwApi();
+    }
+
     public function getDaily()
     {
-        $this->setEndpoint(Endpoints::DAILY);
-        return $this->callApi();
+        $this->api->setEndpoint(Endpoint::DAILY);
+        $this->response = $this->api->callApi();
+        return $this->api->callApi();
+    }
+
+    public function asArray()
+    {
+        $this->response = $this->response;
+        return json_decode($this, true);
     }
 }
 

@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Model\GwDaily;
+use AppBundle\Model\GwApi;
 // https://api.guildwars2.com/v2/achievements/daily
 // https://api.guildwars2.com/v2/achievements?ids=1975,1939,1964,1967,1881,1856,1861,2116,2101,946,1849,1850,1843
 
@@ -15,11 +16,14 @@ class DefaultController extends Controller
      */
     public function showAction($page)
     {
-        $d = new GwDaily();
-        $result = $d->getDaily()->getBody()->getContents();
-        $result = \GuzzleHttp\json_decode($result, true);
+        //$d = new GwDaily();
+        //$result = $d->getDaily()->getBody()->getContents();
+        //$result = \GuzzleHttp\json_decode($result, true);
 
-        echo '<pre>'; print_r($d); echo '</pre>';
+        $api = new GwApi();
+        $r = $api->daily()->callApi();
+        
+        echo '<pre>'; print_r($r); echo '</pre>';
 
         return $this->render('default/index.html.twig',
             array('dailies_info' => '', 'page' => $page)

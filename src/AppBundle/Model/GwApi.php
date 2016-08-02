@@ -5,8 +5,9 @@ namespace AppBundle\Model;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
+use AppBundle\Model\DailyEndpoint;
 
-class GwApi extends Endpoints
+class GwApi
 {
     protected $options;
     private $apiUrl = 'https://api.guildwars2.com/';
@@ -23,12 +24,14 @@ class GwApi extends Endpoints
         return $options + ['base_uri' => $this->apiUrl];
     }
 
-    public function callApi()
+    public function getClient()
     {
-        $uri = new Uri($this->endpoint);
-        $request = new Request('GET', $uri);
-        $response = $this->client->send($request);
-        return $response;
+        return $this->client;
+    }
+
+    public function daily()
+    {
+        return new DailyEndpoint($this);
     }
 
     public function __toString()
@@ -57,6 +60,4 @@ class GwApi extends Endpoints
 //    $content = $response->getBody()->getContents();
 //    $content = json_decode($content, true);
 //
-//public function achievements() {
-//    return new AchievementEndpoint( $this );
-//}
+
