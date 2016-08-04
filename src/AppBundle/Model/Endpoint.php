@@ -2,11 +2,8 @@
 
 namespace AppBundle\Model;
 
-use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Uri;
-use AppBundle\Model\GwApi;
 
 abstract class Endpoint
 {
@@ -17,13 +14,13 @@ abstract class Endpoint
         $this->api = $api;
     }
 
-    public function callApi()
+    public function get()
     {
-        $uri = new Uri($this->apiUri());
+        $uri = new Uri($this->apiUrl());
         $request = new Request('GET', $uri);
         $response = $this->api->getClient()->send($request);
         return $response;
     }
 
-    abstract public function apiUri();
+    abstract public function apiUrl();
 }

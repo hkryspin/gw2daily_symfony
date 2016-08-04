@@ -3,17 +3,15 @@
 namespace AppBundle\Model;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7\Uri;
-use AppBundle\Model\DailyEndpoint;
 
 class GwApi
 {
     protected $options;
+    
     private $apiUrl = 'https://api.guildwars2.com/';
     private $client;
 
-    function __construct(array $options = [])
+    function __construct() //array $options = []
     {
         $this->options = $this->getOptions($options);
         $this->client = new Client($this->options);
