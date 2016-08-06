@@ -16,11 +16,13 @@ abstract class Endpoint
 
     public function get()
     {
-        $uri = new Uri($this->apiUrl());
+        $uri = new Uri($this->url());
+        //$uri = Uri::withQueryValue($uri, 'ids', '1975');
         $request = new Request('GET', $uri);
+        $request = \GuzzleHttp\Psr7\modify_request($request, ['query' => 'ids=1975,1939,1964']);
         $response = $this->api->getClient()->send($request);
         return $response;
     }
 
-    abstract public function apiUrl();
+    abstract public function url();
 }

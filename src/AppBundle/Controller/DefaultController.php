@@ -19,10 +19,17 @@ class DefaultController extends Controller
         //$result = $d->getDaily()->getBody()->getContents();
         //$result = \GuzzleHttp\json_decode($result, true);
 
+        //$api = new GwApi(['query' => 'ids=1975,1939,1964']);
+        //$r = $api->dailies()->get();
+        //$daily = $r->getBody()->getContents();
+        //$daily = \GuzzleHttp\json_decode($daily, true);
+
         $api = new GwApi();
-        $r = $api->daily()->get();
+        $r = $api->achievements()->get();
+        $achi = $r->getBody()->getContents();
+        $achi = \GuzzleHttp\json_decode($achi, true);
         
-        echo '<pre>'; print_r($api); echo '</pre>';
+        echo '<pre>'; print_r($achi); echo '</pre>';
 
         return $this->render('default/index.html.twig',
             array('dailies_info' => '', 'page' => $page)

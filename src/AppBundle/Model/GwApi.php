@@ -11,7 +11,7 @@ class GwApi
     private $apiUrl = 'https://api.guildwars2.com/';
     private $client;
 
-    function __construct() //array $options = []
+    function __construct(array $options = [])
     {
         $this->options = $this->getOptions($options);
         $this->client = new Client($this->options);
@@ -27,9 +27,14 @@ class GwApi
         return $this->client;
     }
 
-    public function daily()
+    public function dailies()
     {
         return new DailyEndpoint($this);
+    }
+
+    public function achievements()
+    {
+        return new AchievementEndpoint($this);
     }
 
     public function __toString()

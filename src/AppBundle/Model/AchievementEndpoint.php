@@ -2,10 +2,10 @@
 
 namespace AppBundle\Model;
 
-class AchievementEndpoint
+class AchievementEndpoint extends Endpoint
 {
-    public function apiUrl()
+    public function url()
     {
-        return 'v2/achievements?ids=';
+        return 'v2/achievements';
     }
 }
