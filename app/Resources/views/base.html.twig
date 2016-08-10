@@ -17,18 +17,20 @@
     {% endjavascripts %}
     #}
 </head>
-<body style="text-align: center; background-color: #eee;">
+<body style="text-align: center;">
     <h2>GW2 Daily</h2>
     <nav>
         <a onclick="ajax(event)" id="pve" href="{{ path('daily_show', {'page': 'pve'}) }}" />pve</a>
         <a onclick="ajax(event)" id="pvp" href="{{ path('daily_show', {'page': 'pvp'}) }}" />pvp</a>
         <a onclick="ajax(event)" id="wvw" href="{{ path('daily_show', {'page': 'wvw'}) }}" />wvw</a>
     </nav>
-    <main>
+    <main style="background-image: url({{ asset('images/pattern6.jpg') }})">
         {% block content %}{% endblock %}
     </main>
+<!--
 <pre>
     {#{{ dump(data) }}#}
 </pre>
+-->
 </body>
 </html>

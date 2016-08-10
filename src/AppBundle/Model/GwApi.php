@@ -36,20 +36,7 @@ class GwApi
     {
         return new AchievementEndpoint($this);
     }
-
-    public function __toString()
-    {
-        return __METHOD__ . '</br>apiUrl = ' . $this->apiUrl;
-    }
 }
-
-//    public function daily()
-//    {
-//        $uri = new Uri('v2/achievements/daily');
-//        $request = new Request('GET', $uri);
-//        $response = $this->client->send($request);
-//        return $response;
-//    }
 //
 //    $client = new Client();
 //    $response = $client->request('GET', 'https://api.guildwars2.com/v2/achievements/daily');
@@ -63,4 +50,3 @@ class GwApi
 //    $content = $response->getBody()->getContents();
 //    $content = json_decode($content, true);
 //
-
