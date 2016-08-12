@@ -6,20 +6,18 @@ use GuzzleHttp\Client;
 
 class GwApi
 {
-    protected $options;
-    
     private $apiUrl = 'https://api.guildwars2.com/';
     private $client;
 
-    function __construct(array $options = [])
+    function __construct()
     {
-        $this->options = $this->getOptions($options);
+        $this->options = $this->getOptions();
         $this->client = new Client($this->options);
     }
 
-    protected function getOptions(array $options = [])
+    protected function getOptions()
     {
-        return $options + ['base_uri' => $this->apiUrl];
+        return ['base_uri' => $this->apiUrl];
     }
 
     public function getClient()
