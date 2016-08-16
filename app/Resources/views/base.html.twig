@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GW2 Daily</title>
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="https://d1h9a8s8eodvjz.cloudfront.net/fonts/menomonia/08-02-12/menomonia.css" rel="stylesheet" />
@@ -11,26 +12,25 @@
 
     <script src="{{ asset('js/jquery-3.0.0.min.js') }}"></script>
     <script src="{{ asset('js/ajax.js') }}"></script>
-    {#
-    {% javascripts '@AppBundle/Resources/public/js/test.js' %}
-        <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    #}
+    <script>
+        /*$( document ).ready(function() {
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            $('nav').html(width + ':' + height);
+        });*/
+    </script>
 </head>
-<body style="text-align: center;">
-    <h2>GW2 Daily</h2>
-    <nav>
-        <a onclick="ajax(event)" id="pve" href="{{ path('daily_show', {'page': 'pve'}) }}" />pve</a>
-        <a onclick="ajax(event)" id="pvp" href="{{ path('daily_show', {'page': 'pvp'}) }}" />pvp</a>
-        <a onclick="ajax(event)" id="wvw" href="{{ path('daily_show', {'page': 'wvw'}) }}" />wvw</a>
-    </nav>
-    <main style="background-image: url({{ asset('images/pattern6.jpg') }})">
+<body>
+    <header class="{{ page }}">
+        <h1>GW2 Daily</h1>
+        <nav>
+            <a onclick="ajax(event)" id="pve" href="{{ path('daily_show', {'page': 'pve'}) }}" />PvE</a>
+            <a onclick="ajax(event)" id="pvp" href="{{ path('daily_show', {'page': 'pvp'}) }}" />PvP</a>
+            <a onclick="ajax(event)" id="wvw" href="{{ path('daily_show', {'page': 'wvw'}) }}" />WvW</a>
+        </nav>
+    </header>
+    <main style="background-image: url({{ asset('') }}) ">
         {% block content %}{% endblock %}
     </main>
-<!--
-<pre>
-    {#{{ dump(data) }}#}
-</pre>
--->
 </body>
 </html>

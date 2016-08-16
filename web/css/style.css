@@ -1,38 +1,54 @@
-pre {
-    margin-left: 35em;
-    font-family: monospace!important;
-    text-align: left;
-    white-space: pre;
-    background-color: #eee;
-}
-required {
-    font-family: monospace!important;
-    text-align: left;
-    white-space: pre;
-    background-color: #eee;
-}
-
 * {
     font-family: Menomonia !important;
 }
 
+body {
+    margin: 0;
+}
+
+header {
+    position: fixed;
+    z-index: 2;
+
+    width: 100%;
+    padding: 1px;
+    color: white;
+}
+
+h1 {
+    display: inline;
+    margin-left: 1%;
+}
+
 nav {
-    display: inline-block;
+    position: absolute;
+    right: 1%;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: inline;
+}
+
+nav a {
+    padding: .25em;
+    color: white;
+    text-decoration: none;
+    font-size: 18pt;
 }
 
 main {
-    /*position: fixed;*/
-    position: absolute;
-    left: 0px;
-    top: 0px;
-
+    /*padding-top: 6.5vh;*/
+    padding-top: 2pc;
+    background-size: 30%;
+    background-size: contain;
     background-repeat: no-repeat;
-    background-position: top right;
 }
 
 .daily-container {
-    float: left;
-    width: 35em;
+    z-index: 1;
+    overflow: hidden;
+    width: 40%;
+    margin-left: 30%;
 }
 
 ul {
@@ -40,18 +56,23 @@ ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    margin-left: 5em;
 }
 
 li {
+    min-height: 110px;
     margin: 5px;
-    max-height: 130px;
-    max-width: 470px;
-    min-height: 130px;
-    min-width: 470px;
+}
 
-    background-size: cover;
-    background-repeat: no-repeat;
+header.pve {
+    background-color: rgba(68, 152, 104, 1.0);
+}
+
+header.pvp {
+    background-color: rgba(165, 75, 232, 1.0);
+}
+
+header.wvw {
+    background-color: rgba(169, 61, 32, 1.0);
 }
 
 .pve>li {
@@ -66,11 +87,15 @@ li {
     box-shadow: 0px 0px 5px rgba(169, 61, 32, 1.0);
 }
 
+/* disabled until further implementation is needed */
+.daily-btn {
+    pointer-events: none;
+    cursor: default;
+}
+
 .daily-btn .daily-btn:hover, .daily-btn:visited, .daily-btn:link, .daily-btn:active
 {
     display: block;
-    height: 130px;
-    /*position: relative;*/
     text-decoration: none;
     color: #000;
 
@@ -87,20 +112,14 @@ li {
     user-select: none;*/
 }
 
-.daily-btn:active {
-    box-shadow: inset 0px 0px 10px black;
-}
-
 .daily-icon {
     position: absolute;
-    width: 64px; /*55px;*/
-    height: 64px; /*55px;*/
     left: 11px;
     margin-top: 7px;
     box-shadow: 0px 0px 5px black;
 }
 
-h1 {
+h2 {
     font-size: 1.25em;
     margin: 0;
     padding-top: 3px;
@@ -114,4 +133,19 @@ span {
 
 .daily-desc {
     font-style: italic;
+}
+
+pre {
+    margin-left: 35em;
+    font-family: monospace!important;
+    text-align: left;
+    white-space: pre;
+    background-color: #eee;
+}
+
+@media (max-width: 70em) {
+    .daily-container {
+        width: 100%;
+        margin-left: 0;
+    }
 }
