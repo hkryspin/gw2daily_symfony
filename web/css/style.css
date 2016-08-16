@@ -10,6 +10,7 @@ header {
     position: fixed;
     z-index: 2;
 
+    overflow: hidden;
     width: 100%;
     padding: 1px;
     color: white;
@@ -141,6 +142,22 @@ pre {
     text-align: left;
     white-space: pre;
     background-color: #eee;
+}
+
+@media (max-width: 35em) {
+    main {
+        padding-top: 1pc;
+    }
+    h1 {
+        font-size: 99%;
+    }
+    nav {
+        top: 0;
+        transform: translateY(0);
+    }
+    nav a {
+        font-size: 99%;
+    }
 }
 
 @media (max-width: 70em) {
