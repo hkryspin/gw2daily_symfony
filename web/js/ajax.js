@@ -11,7 +11,6 @@ function ajax(event) {
         .done(function (response) {
             var template = response;
             $('main').html(template);
-            $('header').removeClass().addClass($page);
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
             alert('Error : ' + errorThrown);
