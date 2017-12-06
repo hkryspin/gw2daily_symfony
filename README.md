@@ -3,7 +3,7 @@ gw2daily_symfony
 
 A Symfony project created on June 29, 2016, 5:52 pm.
 
----
+--
 
 Skrótowy opis:
 
@@ -14,7 +14,7 @@ bardziej szczegółowych informacji.
 Przykładowo:
 https://api.guildwars2.com/v2/achievements?ids=1975,1939,1964,1967,1881,1856,1861,2116,2101,946,1849,1850,1843
 
-----
+--
 
 Implementacja:
 
